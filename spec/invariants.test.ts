@@ -49,6 +49,16 @@ describe("invariants: every page", () => {
         expect(doc.querySelectorAll("h1").length).toBe(1);
       });
 
+      it("never reuses an id", () => {
+        // A duplicate id doesn't fail HTML parsing, but getElementById and
+        // querySelector("#id") silently return the FIRST match — so a script
+        // written against the id you meant can end up operating on a
+        // different element with no error anywhere in the toolchain.
+        const ids = [...doc.querySelectorAll("[id]")].map((el) => el.id);
+        const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+        expect([...new Set(duplicates)]).toEqual([]);
+      });
+
       it("gives every image alt text", () => {
         for (const img of doc.querySelectorAll("img")) {
           expect(
