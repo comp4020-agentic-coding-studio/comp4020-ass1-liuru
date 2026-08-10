@@ -25,6 +25,16 @@ first --- it's a real obsession, not a bit.
   fine but isn't actually testing the phone breakpoint.
 - Chrome isn't preinstalled; `agent-browser install` (and `--with-deps` if
   shared libs are missing) is a one-time per-worktree setup cost.
+- `pnpm dlx @axe-core/cli` fails here with `spawn .../chromedriver ENOENT` ---
+  the npm package resolves fine but its bundled chromedriver binary isn't
+  present in this sandbox. Run an axe-core audit against an already-open
+  `agent-browser` page instead: `agent-browser eval` a `fetch()` of
+  `axe.min.js` from a CDN (e.g. jsdelivr), inject it as an inline `<script>`,
+  then call `window.axe.run()` and read the JSON result back with a second
+  `eval`. Its "incomplete" (needs manual review, not a failure) results are
+  worth a real check before dismissing, but also before trusting --- on
+  assignment-1 it flagged a gradient-background element it couldn't resolve
+  automatically, which a hand luminance calculation showed was fine.
 
 ## Process notes
 
