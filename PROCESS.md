@@ -56,3 +56,9 @@ eyeballing it --- lowest pair came out 6.45:1. Every station's control was
 exercised via keyboard (`Tab` + `Enter`/`Space`, arrow keys on the shadow
 stage) as well as pointer, and the page was screenshotted at both 1920×1080
 and 390×844 with no horizontal overflow at either.
+
+A later pass added axe-core (injected live; its own CLI's bundled chromedriver
+has no binary here), which found zero violations across 34 checks. Its one
+"incomplete" flag, the illusion card's gradient background, resolves to
+6.45--9.16:1 by the same formula --- not a real gap. Resizing 1920×1080 to
+390×844 mid-bubble-blow and mid-shadow-drag also held up cleanly.

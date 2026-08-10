@@ -193,3 +193,14 @@ says about the developer you're becoming.
   artifact of how the full-page capture composites multiple viewport slices,
   not a real rendering bug. Confirm with a normal (non-`--full`) screenshot
   after scrolling to the suspect region before treating it as a defect.
+- **`pnpm dlx @axe-core/cli` fails in this sandbox** with `spawn
+  .../chromedriver ENOENT` --- the package resolves but its bundled
+  chromedriver binary isn't present. Run axe-core against the already-open
+  `agent-browser` page instead: `agent-browser eval` a `fetch()` of
+  `axe.min.js` from a CDN (e.g. jsdelivr), append it as an inline `<script>`,
+  then call `window.axe.run()` and read the JSON result back. On this build it
+  found zero violations across 34 checks; its one "incomplete" (not a
+  violation) was a gradient-background element axe couldn't resolve
+  contrast for automatically --- worth a hand luminance check
+  (`(L1+0.05)/(L2+0.05)`) before treating it as real, the same way an `auto`
+  focus ring needs a screenshot instead of `getComputedStyle`.
