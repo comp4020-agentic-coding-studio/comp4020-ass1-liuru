@@ -142,3 +142,17 @@ first --- it's a real obsession, not a bit.
   rendering bug. Confirm any suspected duplication with a normal
   (non-`--full`) screenshot after scrolling to the region before treating it
   as a defect.
+- A repeated component pattern (a card grid, say) used on more than one page
+  can have a different, wrong heading level on one instance even when
+  another instance of the exact same markup pattern is correct --- nothing
+  in `pnpm check` catches this, since `tsc`/`vite build`/lint/vitest don't
+  know what a correct heading outline looks like. Only an axe-core
+  `heading-order` check (or reading the actual heading sequence with
+  `agent-browser eval` against `querySelectorAll('h1,h2,h3,h4,h5,h6')`) finds
+  it (crit-2: `index.html`'s `.card h3`s were correctly nested under an
+  `h2`, but `read.html`'s identical-looking cards sat as `h3`s directly under
+  the page `h1` with no `h2` between). Worth running the audit against
+  *every* page even after one page checks out clean, not just a
+  representative sample --- and worth screenshotting before/after any
+  heading-level fix to confirm the visual style (usually pinned to the old
+  tag via a CSS selector like `.card h3`) didn't silently break.
