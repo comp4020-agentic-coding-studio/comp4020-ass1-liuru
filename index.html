@@ -3,22 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4020 prototype</title>
+    <title>The Six As-Ifs · 六如</title>
+    <meta
+      name="description"
+      content="An interactive reading of the Diamond Sūtra's closing verse: six similes for anything that arises from causes and conditions, and why you can't hold on to any of them."
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
       <nav aria-label="Primary">
-        <a href="./">Home</a>
+        <a href="./">The Six As-Ifs</a>
       </nav>
-    </header>
-    <main>
-      <h1>COMP4020 prototype</h1>
-      <p data-testid="intro">
-        Replace this with your prototype. This week's brief is on the course website;
-        <code>spec/README.md</code> explains how the checks in this repo relate to it.
+      <p class="counter" aria-live="polite">
+        Tried to hold on: <span id="hold-count">0</span>
       </p>
+    </header>
+
+    <main>
+      <h1>The Six As-Ifs</h1>
+
+      <section class="intro" aria-labelledby="intro-heading">
+        <h2 id="intro-heading">A 1,500-year-old argument, in six objects</h2>
+        <p>
+          The <cite>Diamond Sūtra</cite> (<span lang="zh">金剛經</span>) closes with a
+          four-line verse. It doesn't argue that everything is impermanent &mdash; it just
+          names six things you already know don't last, and asks you to look at everything
+          conditioned the same way:
+        </p>
+        <blockquote lang="zh">
+          一切有為法，如夢幻泡影，如露亦如電，應作如是觀。
+        </blockquote>
+        <p class="translation">
+          &ldquo;All conditioned dharmas are like a dream, a phantasm, a bubble, a
+          shadow &mdash; like dew, or like lightning. Contemplate them thus.&rdquo;
+        </p>
+        <p>
+          Six similes, each doing different work: a dream fools you from the inside; an
+          illusion fools you from the outside; a bubble looks solid but is only ever a
+          surface; a shadow was never a thing at all; dew is real but keeps a schedule you
+          don't control; lightning is over before you can even name it. Below are six small
+          machines built to make that argument the way the verse does &mdash; not by telling
+          you, but by handing you something and watching it not stay held.
+        </p>
+        <p class="instructions">
+          Each one is a button (or two) &mdash; try it with a mouse, or tab to it and use
+          the keyboard. Nothing below is a trick to catch you out; every one plays fair and
+          still won't stay still.
+        </p>
+      </section>
+
+      <section class="station" aria-labelledby="dream-heading" data-testid="station-dream">
+        <h2 id="dream-heading"><span lang="zh">夢</span> &middot; A dream</h2>
+        <p>A dream feels solid while you're in it. Try to pin one word down.</p>
+        <div class="dream-sentence" data-testid="dream-sentence" aria-live="polite"></div>
+        <button type="button" id="dream-start" data-testid="dream-start">
+          Fall asleep
+        </button>
+        <p class="station-note" id="dream-note" role="status"></p>
+      </section>
+
+      <section class="station" aria-labelledby="illusion-heading" data-testid="station-illusion">
+        <h2 id="illusion-heading"><span lang="zh">幻</span> &middot; An illusion</h2>
+        <p>
+          A conjuror's shape looks like it has weight and a far side. Turn it around.
+        </p>
+        <div class="illusion-stage">
+          <div class="illusion-card" id="illusion-card" data-testid="illusion-card">
+            <div class="illusion-face illusion-front">a solid thing</div>
+            <div class="illusion-face illusion-back">(nothing behind it)</div>
+          </div>
+        </div>
+        <button type="button" id="illusion-flip" data-testid="illusion-flip">
+          Turn it over
+        </button>
+        <p class="station-note" id="illusion-note" role="status"></p>
+      </section>
+
+      <section class="station" id="bubble" aria-labelledby="bubble-heading" data-testid="station-bubble">
+        <h2 id="bubble-heading"><span lang="zh">泡</span> &middot; A bubble</h2>
+        <p>Hold the button to blow it up. Being careful doesn't change how this ends.</p>
+        <div class="bubble-stage">
+          <div class="bubble" id="bubble" data-testid="bubble"></div>
+        </div>
+        <button type="button" id="bubble-blow" data-testid="bubble-blow">
+          Hold to blow
+        </button>
+        <p class="station-note" id="bubble-note" role="status"></p>
+      </section>
+
+      <section class="station" aria-labelledby="shadow-heading" data-testid="station-shadow">
+        <h2 id="shadow-heading"><span lang="zh">影</span> &middot; A shadow</h2>
+        <p>
+          Move the light with the arrow keys (or drag it). Then try to grab the shadow
+          itself.
+        </p>
+        <div class="shadow-stage" id="shadow-stage" data-testid="shadow-stage" tabindex="0">
+          <div class="shadow-object" id="shadow-object"></div>
+          <div class="shadow-cast" id="shadow-cast" data-testid="shadow-cast"></div>
+          <div class="shadow-light" id="shadow-light"></div>
+        </div>
+        <p class="station-note" id="shadow-note" role="status">
+          Focus the stage above, then use the arrow keys to move the light.
+        </p>
+      </section>
+
+      <section class="station" aria-labelledby="dew-heading" data-testid="station-dew">
+        <h2 id="dew-heading"><span lang="zh">露</span> &middot; Dew</h2>
+        <p>
+          This one is honest about its clock. Watch it form, then try to stop it from
+          going.
+        </p>
+        <div class="dew-stage">
+          <div class="dew-drop" id="dew-drop" data-testid="dew-drop"></div>
+        </div>
+        <button type="button" id="dew-form" data-testid="dew-form">Let it form</button>
+        <button type="button" id="dew-freeze" data-testid="dew-freeze" disabled>
+          Try to freeze it
+        </button>
+        <p class="station-note" id="dew-note" role="status"></p>
+      </section>
+
+      <section class="station" aria-labelledby="lightning-heading" data-testid="station-lightning">
+        <h2 id="lightning-heading"><span lang="zh">電</span> &middot; Lightning</h2>
+        <p>Strike it, then replay in slow motion. Slow motion doesn't buy you a middle.</p>
+        <div class="lightning-stage" id="lightning-stage" data-testid="lightning-stage"></div>
+        <button type="button" id="lightning-strike" data-testid="lightning-strike">
+          Strike
+        </button>
+        <button type="button" id="lightning-replay" data-testid="lightning-replay" disabled>
+          Replay in slow motion
+        </button>
+        <p class="station-note" id="lightning-note" role="status"></p>
+      </section>
+
+      <section class="outro" aria-labelledby="outro-heading">
+        <h2 id="outro-heading">Nothing above was rigged</h2>
+        <p>
+          Each station played by its own rules and still ended the same way. That repetition
+          is the verse's method, not a coincidence of this build: it doesn't ask you to
+          accept impermanence on authority, it keeps handing you something to hold until you
+          notice your hands were never going to be enough.
+        </p>
+        <p>
+          Translation above is my own plain-English rendering, checked against Charles
+          Muller's and Red Pine's published English translations of the
+          <cite>Vajracchedikā Prajñāpāramitā Sūtra</cite> rather than invented; scholars
+          differ on exactly how to render <span lang="zh">如</span> (&ldquo;as&rdquo;, or
+          &ldquo;suchness&rdquo;) into English, and this page picks one reading among several
+          defensible ones.
+        </p>
+      </section>
     </main>
+
     <script type="module" src="./main.ts"></script>
   </body>
 </html>
