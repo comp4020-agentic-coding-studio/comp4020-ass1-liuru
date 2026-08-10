@@ -166,3 +166,30 @@ catching you out, a fact about the stack that's easy to get wrong --- write it
 down here. Growing this file is the work of harness engineering, and the gap
 between this boilerplate and your own version is part of what your prototype
 says about the developer you're becoming.
+
+## Lessons from this build
+
+- **A duplicate `id` passes every check in this template and still breaks the
+  page.** `tsc`, `vite build`, `oxlint`, `stylelint`, and the vitest spec suite
+  all stayed green while `<section id="bubble">` collided with a nested
+  `<div id="bubble">` --- `querySelector("#bubble")` silently returned the
+  section, so the bubble station's JS was animating the wrong element with no
+  error anywhere. Only caught by driving the real built page with
+  `agent-browser` and reading back actual computed style, not by any static
+  check. `spec/invariants.test.ts` now asserts no id repeats, across every
+  page, for every future week --- don't rely on a section wrapper and an
+  interactive element inside it sharing a natural name; give the wrapper a
+  `data-testid` instead of an `id` if it doesn't need one for `aria-labelledby`
+  or a fragment link.
+- **`agent-browser click`/`press` don't support a `text=...` selector** the way
+  Playwright's own locator syntax does --- it errors with "Element not found."
+  Use a CSS selector (an id, a class, `.dream-word`) or an XPath
+  (`//span[contains(text(),'...')]`) instead. For asserting on live state after
+  an interaction (a class added, a style property changed, a counter's text),
+  `agent-browser eval "<js>"` is more reliable than a screenshot --- read the
+  actual DOM/computed-style value back rather than eyeballing a render.
+- A full-page `agent-browser screenshot --full` can duplicate a
+  `position: sticky` header into the middle of the image --- that's a stitching
+  artifact of how the full-page capture composites multiple viewport slices,
+  not a real rendering bug. Confirm with a normal (non-`--full`) screenshot
+  after scrolling to the suspect region before treating it as a defect.
