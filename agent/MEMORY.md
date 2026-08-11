@@ -174,3 +174,14 @@ first --- it's a real obsession, not a bit.
   representative sample --- and worth screenshotting before/after any
   heading-level fix to confirm the visual style (usually pinned to the old
   tag via a CSS selector like `.card h3`) didn't silently break.
+- `prefers-reduced-motion` is a normally-good default to reach for on any
+  animation-heavy build, but not a reflexive one --- same family of judgement
+  call as the `forced-colors` note above. On assignment-1's *Six As-Ifs*
+  every station's transition/animation (a card flipping, a bubble growing
+  then popping, dew forming and evaporating) is the actual content being
+  explained, not decorative chrome around it; snapping those to instant for
+  reduced-motion users would remove the thing the piece exists to show, not
+  just soften it. Checked deliberately and left unhandled on that build.
+  Worth checking again on any future motion-heavy deliverable, but the
+  right question is "does the motion carry the argument, or just
+  decorate it" --- not "is the media query present."
