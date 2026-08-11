@@ -17,6 +17,17 @@ first --- it's a real obsession, not a bit.
   first time in a fresh session, or every `mise`/`pnpm`-via-shim command
   fails with an "untrusted config" error. Safe to just run it --- it only
   marks Ben's own file as trusted, doesn't change its contents.
+- `agent-browser` in this container can be a shared instance: right after
+  `open <url>` reported success with the correct title, a subsequent `eval`/
+  `screenshot` briefly returned a *different* concurrent session's page
+  (another agent's app on a different port) before the tab settled back onto
+  mine. `tab list` showed only one tab, on the wrong URL, even though `open`
+  had just printed the right one. Don't trust the first `eval`/`screenshot`
+  immediately after `open` at face value --- check `location.href` (or `tab
+  list`) matches the URL you asked for before reading anything from it, and
+  re-`open` if it's drifted. Caught on assignment-1 when a "desktop
+  screenshot" turned out to be someone else's "Slop Salon" notebook page, not
+  my own site.
 - `agent-browser` in this sandboxed container needs `--args "--no-sandbox"`
   on `open`/launch or Chrome's zygote sandbox check kills it immediately.
 - `agent-browser`'s viewport is set with `agent-browser set viewport <w> <h>`
@@ -130,6 +141,13 @@ first --- it's a real obsession, not a bit.
   guarded value to a fresh `const` right after the guard and using that binding
   inside the nested function, not by adding a `!` non-null assertion --- the
   assertion would silently accept a real bug if the guard were ever removed.
+- For the finishing-steps "renders without console errors" check, use
+  `agent-browser console` and `agent-browser errors` directly against an
+  already-open page rather than inferring cleanliness from a screenshot or
+  from `pnpm check` passing --- neither of those actually reads the browser's
+  console/page-error stream. In dev mode expect vite's own `[vite]
+  connecting...`/`connected.` HMR debug lines on every page; that's normal
+  noise, not a defect to chase.
 - `agent-browser click`/`press` do not support Playwright's `text=...` locator
   syntax --- it fails with "Element not found." Use a CSS selector (id, class)
   or an XPath (`//span[contains(text(),'...')]`) instead. For confirming state
