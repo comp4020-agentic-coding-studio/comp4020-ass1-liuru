@@ -1,45 +1,43 @@
 # Hand-off
 
-## Current state (run on assignment-1, ~124h to cutoff at time of writing)
+## Current state (run on assignment-1, ~117h to cutoff at time of writing)
 
 `comp4020-ass1-liuru` --- brief is
 [assessments/assignment-1](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/assessments/assignment-1.json):
 build an interactive explainer of something more people should know, static
 and client-side, deployed to GitHub Pages. Due noon Monday 17 August 2026.
-Individual, worth 20%. Re-fetched via `WebFetch` this run and confirmed the
-body is unchanged from the four prior runs' record.
+Individual, worth 20%. Re-fetched via `WebFetch` this run --- body unchanged
+from the five prior runs' record.
 
-**Fifth run in a row finding the prototype complete and correct** --- *The Six
-As-Ifs*, six stations sharing one mechanic (summon a phenomenon, try to hold
-it) with a page-wide `#hold-count` tally that only increments on the holding
-action. `git status` was clean at the start and stayed clean --- no code
-changes this run. Re-confirmed rather than re-discovered:
+**Sixth run in a row: quick-confirm only, per the standing guidance below ---
+no full re-audit.** `git status` clean at start and stayed clean (no code
+changes this run). Ran the actual sensors rather than trusting the memory
+record blindly:
 
-- `pnpm check` and `pnpm check:evidence` both green.
-- `PROCESS.md` 579 words / 3 cited commits (both resolve);
-  `reflections/assignment-1.md` 286 words --- both still within the brief's
-  and doctrine's ranges respectively.
-- Live GitHub Pages URL still 404, expected (repo private, publishing isn't
-  my action --- see the standing correction below).
+- `pnpm check` green (typecheck, build, oxlint, stylelint, 24 vitest tests
+  all passing).
+- `pnpm check:evidence` green (`reflections/assignment-1.md` present and
+  current; `PROCESS.md`'s 2 cited commits both resolve).
+- Did not re-open the browser or re-run axe-core/keyboard/resize checks this
+  run --- nothing changed since the last run that exercised them, and
+  repeating that pass adds no new information (see prior runs' notes).
 
-No new HD-band angle turned up this run either (keyboard, resize-mid-
-interaction, slow-connection, and axe-core were all exercised and recorded by
-prior runs; nothing about the small static bundle has changed to warrant
-re-testing them).
+The five "memory: tick snapshot ..." commits at HEAD are the harness's own
+automated writes to `agent/now.md` (harness-owned, read-only to me) --- not
+something I authored or need to act on.
 
 ## What's actually left before cutoff
 
-Nothing broken, nothing missing against the spec, five independent runs now
-agree. ~124h remain. In priority order for a future run:
+Nothing broken, nothing missing against the spec, six independent runs now
+agree. ~117h remain. In priority order for a future run:
 
 1. Re-fetch the brief once before doing anything, per doctrine.
-2. **Stop re-auditing without a new angle.** Five runs finding "nothing to
-   fix" is the build being finished, not a prompt to invent a seventh station
-   or restructure (same pattern as crit-2). If a future run has genuinely
-   fresh information (a spec change, a real bug report, a new HD-band axis
-   the brief text doesn't already cover), act on it; otherwise don't spend a
-   full audit cycle confirming a steady state again --- a quick `git status`
-   + `pnpm check` + brief diff is enough to confirm nothing changed.
+2. **Keep not re-auditing without a new angle.** Six runs finding "nothing to
+   fix" is the build being finished. A quick `git status` + `pnpm check` +
+   `pnpm check:evidence` + brief diff is enough to confirm nothing changed;
+   don't repeat the full browser/axe-core/keyboard/resize pass unless
+   something has actually changed (a spec update, a real bug report, code
+   drift) or genuinely fresh time has passed since it was last exercised.
 3. The highest-value remaining work is rehearsing the week 4 retro
    ([crits/03-a1-retro](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/crits/03-a1-retro.json)),
    which reads `reflections/assignment-1.md` directly --- the "one mechanic,
@@ -54,8 +52,8 @@ agree. ~124h remain. In priority order for a future run:
 
 Re-open this repo, reread this file, re-fetch the assignment-1 brief to
 confirm it's unchanged. If nothing has changed and no new angle presents
-itself, keep the check quick (git status, `pnpm check`, brief diff) rather
-than repeating a full fifth-plus audit --- the prototype is done; the
+itself, keep the check quick (git status, `pnpm check`, `pnpm check:evidence`,
+brief diff) rather than repeating a full audit --- the prototype is done; the
 remaining value is in the retro presentation, not more verification passes.
 
 ## Correction to a recurring misreading from earlier hand-offs (still holds)
