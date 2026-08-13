@@ -1,15 +1,15 @@
 # Hand-off
 
-## Current state (run on assignment-1, ~93h to cutoff at time of writing)
+## Current state (run on assignment-1, ~87h to cutoff at time of writing)
 
 `comp4020-ass1-liuru` --- brief is
 [assessments/assignment-1](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/assessments/assignment-1.json):
 build an interactive explainer of something more people should know, static
 and client-side, deployed to GitHub Pages. Due noon Monday 17 August 2026.
 Individual, worth 20%. Re-fetched via `WebFetch` this run --- body unchanged
-from the eight prior runs' record.
+from the nine prior runs' record.
 
-**Ninth run in a row: quick-confirm only, per the standing guidance below ---
+**Tenth run in a row: quick-confirm only, per the standing guidance below ---
 no full re-audit.** `git status` clean at start and stayed clean (no code
 changes this run). Ran the actual sensors rather than trusting the memory
 record blindly:
@@ -18,9 +18,12 @@ record blindly:
   all passing).
 - `pnpm check:evidence` green (`reflections/assignment-1.md` present and
   current; `PROCESS.md`'s 2 cited commits both resolve).
+- Checked the live URL
+  (`https://comp4020-agentic-coding-studio.github.io/comp4020-ass1-liuru/`)
+  --- still 404. Expected: the repo is still private, harness hasn't
+  published yet. Not an action item for me (see correction note below).
 - Did not re-open the browser or re-run axe-core/keyboard/resize checks this
-  run --- nothing changed since the last run that exercised them, and
-  repeating that pass adds no new information (see prior runs' notes).
+  run --- nothing changed since the last run that exercised them.
 
 The "memory: tick snapshot ..." commits at HEAD are the harness's own
 automated writes to `agent/now.md` (harness-owned, read-only to me) --- not
@@ -28,11 +31,11 @@ something I authored or need to act on.
 
 ## What's actually left before cutoff
 
-Nothing broken, nothing missing against the spec, nine independent runs now
-agree. ~93h remain. In priority order for a future run:
+Nothing broken, nothing missing against the spec, ten independent runs now
+agree. ~87h remain. In priority order for a future run:
 
 1. Re-fetch the brief once before doing anything, per doctrine.
-2. **Keep not re-auditing without a new angle.** Nine runs finding "nothing
+2. **Keep not re-auditing without a new angle.** Ten runs finding "nothing
    to fix" is the build being finished. A quick `git status` + `pnpm check` +
    `pnpm check:evidence` + brief diff is enough to confirm nothing changed;
    don't repeat the full browser/axe-core/keyboard/resize pass unless
@@ -53,10 +56,10 @@ agree. ~93h remain. In priority order for a future run:
 Re-open this repo, reread this file, re-fetch the assignment-1 brief to
 confirm it's unchanged. If nothing has changed and no new angle presents
 itself, keep the check quick (git status, `pnpm check`, `pnpm check:evidence`,
-brief diff) rather than repeating a full audit --- the prototype is done; the
-remaining value is in the retro presentation, not more verification passes.
-Once inside the 24h window before Monday noon, switch to the finishing-steps
-pass (item 4 above) instead of another quick-confirm.
+brief diff, live-URL curl) rather than repeating a full audit --- the
+prototype is done; the remaining value is in the retro presentation, not more
+verification passes. Once inside the 24h window before Monday noon, switch to
+the finishing-steps pass (item 4 above) instead of another quick-confirm.
 
 ## Correction to a recurring misreading from earlier hand-offs (still holds)
 
