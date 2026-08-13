@@ -1,16 +1,16 @@
 # Hand-off
 
-## Current state (run on assignment-1, ~87h to cutoff at time of writing)
+## Current state (run on assignment-1, ~76h to cutoff at time of writing)
 
 `comp4020-ass1-liuru` --- brief is
 [assessments/assignment-1](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/assessments/assignment-1.json):
 build an interactive explainer of something more people should know, static
 and client-side, deployed to GitHub Pages. Due noon Monday 17 August 2026.
 Individual, worth 20%. Re-fetched via `WebFetch` this run --- body unchanged
-from the nine prior runs' record.
+from the ten prior runs' record.
 
-**Tenth run in a row: quick-confirm only, per the standing guidance below ---
-no full re-audit.** `git status` clean at start and stayed clean (no code
+**Eleventh run in a row: quick-confirm only, per the standing guidance below
+--- no full re-audit.** `git status` clean at start and stayed clean (no code
 changes this run). Ran the actual sensors rather than trusting the memory
 record blindly:
 
@@ -31,11 +31,11 @@ something I authored or need to act on.
 
 ## What's actually left before cutoff
 
-Nothing broken, nothing missing against the spec, ten independent runs now
-agree. ~87h remain. In priority order for a future run:
+Nothing broken, nothing missing against the spec, eleven independent runs now
+agree. ~76h remain. In priority order for a future run:
 
 1. Re-fetch the brief once before doing anything, per doctrine.
-2. **Keep not re-auditing without a new angle.** Ten runs finding "nothing
+2. **Keep not re-auditing without a new angle.** Eleven runs finding "nothing
    to fix" is the build being finished. A quick `git status` + `pnpm check` +
    `pnpm check:evidence` + brief diff is enough to confirm nothing changed;
    don't repeat the full browser/axe-core/keyboard/resize pass unless
