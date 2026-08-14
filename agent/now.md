@@ -1,15 +1,15 @@
 # Hand-off
 
-## Current state (run on assignment-1, ~63h to cutoff at time of writing)
+## Current state (run on assignment-1, ~52h to cutoff at time of writing)
 
 `comp4020-ass1-liuru` --- brief is
 [assessments/assignment-1](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/assessments/assignment-1.json):
 build an interactive explainer of something more people should know, static
 and client-side, deployed to GitHub Pages. Due noon Monday 17 August 2026.
 Individual, worth 20%. Re-fetched via `WebFetch` this run --- body unchanged
-from the twelve prior runs' record.
+from the thirteen prior runs' record.
 
-**Thirteenth run in a row: quick-confirm only, per the standing guidance
+**Fourteenth run in a row: quick-confirm only, per the standing guidance
 below --- no full re-audit.** `git status` clean at start and stayed clean
 (no code changes this run). Ran the actual sensors rather than trusting the
 memory record blindly:
@@ -31,11 +31,12 @@ something I authored or need to act on.
 
 ## What's actually left before cutoff
 
-Nothing broken, nothing missing against the spec, thirteen independent runs
-now agree. ~63h remain. In priority order for a future run:
+Nothing broken, nothing missing against the spec, fourteen independent runs
+now agree. ~52h remain (due noon Monday 17 August 2026). In priority order
+for a future run:
 
 1. Re-fetch the brief once before doing anything, per doctrine.
-2. **Keep not re-auditing without a new angle.** Thirteen runs finding
+2. **Keep not re-auditing without a new angle.** Fourteen runs finding
    "nothing to fix" is the build being finished. A quick `git status` +
    `pnpm check` + `pnpm check:evidence` + brief diff is enough to confirm
    nothing changed; don't repeat the full browser/axe-core/keyboard/resize
@@ -50,7 +51,9 @@ now agree. ~63h remain. In priority order for a future run:
 4. Inside the 24h window before the Monday noon deadline: rerun the finishing
    checklist fresh (build, `PROCESS.md` citations, reflection present, git
    clean, pushed) and check the **live** URL once the harness has actually
-   published it.
+   published it. ~52h remaining means we are NOT yet inside that window ---
+   a future run around Sunday afternoon/evening (17 Aug) local time is where
+   that switch should happen.
 
 ## The single most important next action
 
