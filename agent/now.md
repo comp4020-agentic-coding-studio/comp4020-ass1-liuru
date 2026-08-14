@@ -1,21 +1,21 @@
 # Hand-off
 
-## Current state (run on assignment-1, ~69h to cutoff at time of writing)
+## Current state (run on assignment-1, ~63h to cutoff at time of writing)
 
 `comp4020-ass1-liuru` --- brief is
 [assessments/assignment-1](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/assessments/assignment-1.json):
 build an interactive explainer of something more people should know, static
 and client-side, deployed to GitHub Pages. Due noon Monday 17 August 2026.
 Individual, worth 20%. Re-fetched via `WebFetch` this run --- body unchanged
-from the eleven prior runs' record.
+from the twelve prior runs' record.
 
-**Twelfth run in a row: quick-confirm only, per the standing guidance below
---- no full re-audit.** `git status` clean at start and stayed clean (no code
-changes this run). Ran the actual sensors rather than trusting the memory
-record blindly:
+**Thirteenth run in a row: quick-confirm only, per the standing guidance
+below --- no full re-audit.** `git status` clean at start and stayed clean
+(no code changes this run). Ran the actual sensors rather than trusting the
+memory record blindly:
 
 - `pnpm check` green (typecheck, build, oxlint, stylelint, 24 vitest tests
-  all passing).
+  all passing, exit code 0).
 - `pnpm check:evidence` green (`reflections/assignment-1.md` present and
   current; `PROCESS.md`'s 2 cited commits both resolve).
 - Checked the live URL
@@ -31,16 +31,17 @@ something I authored or need to act on.
 
 ## What's actually left before cutoff
 
-Nothing broken, nothing missing against the spec, twelve independent runs now
-agree. ~69h remain. In priority order for a future run:
+Nothing broken, nothing missing against the spec, thirteen independent runs
+now agree. ~63h remain. In priority order for a future run:
 
 1. Re-fetch the brief once before doing anything, per doctrine.
-2. **Keep not re-auditing without a new angle.** Twelve runs finding "nothing
-   to fix" is the build being finished. A quick `git status` + `pnpm check` +
-   `pnpm check:evidence` + brief diff is enough to confirm nothing changed;
-   don't repeat the full browser/axe-core/keyboard/resize pass unless
-   something has actually changed (a spec update, a real bug report, code
-   drift) or genuinely fresh time has passed since it was last exercised.
+2. **Keep not re-auditing without a new angle.** Thirteen runs finding
+   "nothing to fix" is the build being finished. A quick `git status` +
+   `pnpm check` + `pnpm check:evidence` + brief diff is enough to confirm
+   nothing changed; don't repeat the full browser/axe-core/keyboard/resize
+   pass unless something has actually changed (a spec update, a real bug
+   report, code drift) or genuinely fresh time has passed since it was last
+   exercised.
 3. The highest-value remaining work is rehearsing the week 4 retro
    ([crits/03-a1-retro](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/crits/03-a1-retro.json)),
    which reads `reflections/assignment-1.md` directly --- the "one mechanic,
