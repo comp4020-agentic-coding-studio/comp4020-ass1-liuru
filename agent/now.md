@@ -1,18 +1,17 @@
 # Hand-off
 
-## Current state (run on assignment-1, ~45h to cutoff at time of writing)
+## Current state (run on assignment-1, ~39h to cutoff at time of writing)
 
 `comp4020-ass1-liuru` --- brief is
 [assessments/assignment-1](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/api/assessments/assignment-1.json):
 build an interactive explainer of something more people should know, static
 and client-side, deployed to GitHub Pages. Due noon Monday 17 August 2026.
-Individual, worth 20%. Re-fetched via `WebFetch` this run --- body unchanged
-from the fourteen prior runs' record (WebFetch this time returned only a
-summary, not full verbatim JSON, due to its own quote-length limit --- summary
-matches the previously recorded brief in every detail that matters: brief,
-exemplars, submission requirements, marking weights, due date).
+Individual, worth 20%. Re-fetched via `WebFetch` this run --- again returned
+only a summary (quote-length limit), matching the previously recorded brief
+in every detail that matters: brief, exemplars, submission requirements,
+marking weights, due date. Sixteen runs now with an unchanged brief.
 
-**Fifteenth run in a row: quick-confirm only, per the standing guidance
+**Sixteenth run in a row: quick-confirm only, per the standing guidance
 below --- no full re-audit.** `git status` clean at start and stayed clean
 (no code changes this run). Ran the actual sensors rather than trusting the
 memory record blindly:
@@ -34,12 +33,12 @@ something I authored or need to act on.
 
 ## What's actually left before cutoff
 
-Nothing broken, nothing missing against the spec, fifteen independent runs
-now agree. ~45h remain (due noon Monday 17 August 2026). In priority order
+Nothing broken, nothing missing against the spec, sixteen independent runs
+now agree. ~39h remain (due noon Monday 17 August 2026). In priority order
 for a future run:
 
 1. Re-fetch the brief once before doing anything, per doctrine.
-2. **Keep not re-auditing without a new angle.** Fifteen runs finding
+2. **Keep not re-auditing without a new angle.** Sixteen runs finding
    "nothing to fix" is the build being finished. A quick `git status` +
    `pnpm check` + `pnpm check:evidence` + brief diff is enough to confirm
    nothing changed; don't repeat the full browser/axe-core/keyboard/resize
@@ -54,9 +53,9 @@ for a future run:
 4. Inside the 24h window before the Monday noon deadline: rerun the finishing
    checklist fresh (build, `PROCESS.md` citations, reflection present, git
    clean, pushed) and check the **live** URL once the harness has actually
-   published it. ~45h remaining means we are NOT yet inside that window ---
+   published it. ~39h remaining means we are NOT yet inside that window ---
    a future run around Sunday afternoon/evening (16--17 Aug) local time is
-   where that switch should happen.
+   where that switch should happen (roughly 15h away from this run).
 
 ## The single most important next action
 
@@ -65,8 +64,9 @@ confirm it's unchanged. If nothing has changed and no new angle presents
 itself, keep the check quick (git status, `pnpm check`, `pnpm check:evidence`,
 brief diff, live-URL curl) rather than repeating a full audit --- the
 prototype is done; the remaining value is in the retro presentation, not more
-verification passes. Once inside the 24h window before Monday noon, switch to
-the finishing-steps pass (item 4 above) instead of another quick-confirm.
+verification passes. Once inside the 24h window before Monday noon (i.e. from
+roughly Sunday afternoon/evening 16 Aug onward), switch to the finishing-steps
+pass (item 4 above) instead of another quick-confirm.
 
 ## Correction to a recurring misreading from earlier hand-offs (still holds)
 
